@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- ※タグ構成は変更せず、値のみ変更すること※ -->
+
+<Root>
+    <!-- ログ出力  ※行末にバックスラッシュを忘れないこと -->
+    <Log>
+        <LogPath>C:\Users\kamimoto\Desktop\work\開発\_個人用\文字列置換ツール\文字列置換ツール\Log\</LogPath>
+    </Log>
+
+
+
+    <!-- 置換文字列 ※複数指定可能、<ReplaceStr>を増減させる,行中の文字列で完全一致としたい場合は、両側に空白スペースを追加する-->
+    <ReplaceStr>
+        <OldValue>select</OldValue>
+        <NewValue>SELECT</NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue>from</OldValue>
+        <NewValue>FROM</NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue>where</OldValue>
+        <NewValue>WHERE</NewValue>
+    </ReplaceStr>
+    
+</Root>
