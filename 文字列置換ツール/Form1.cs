@@ -53,7 +53,7 @@ namespace 文字列置換ツール
 
 
             // 元ファイルからファイルのコピーを作成
-            if (sourceFilePath == "")
+            if (sourceFilePath == "" || sourceFilePath == null)
             {
                 MessageBox.Show("ファイルを選択してください。",
                                 "エラー",
@@ -248,7 +248,7 @@ namespace 文字列置換ツール
             // 取得したい要素の存在チェック
             if (Utility.IsElement("ReplaceStr") == false)
             {
-                Utility.MakeError($"設定ファイルに<ReplaceStr>タグが見つかりませんでした。\nファイルを確認してください。\n{Program.configPath}");
+                Utility.MakeError($"設定ファイルに<ReplaceStr>タグが見つかりませんでした。\nファイルを確認してください。\n\n{Program.configPath}");
             }
 
 
