@@ -95,6 +95,22 @@ namespace 文字列置換ツール
                                 "エラー",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
+
+                // 異常終了の場合、出力に作成したファイルを削除する
+                try
+                {
+                    DeleteFile(targetFilePath);
+                }
+                catch (Exception ex2)
+                {
+                    Debug.Write($"出力ファイル削除エラー\n{ex2}");
+                    logger.Write("ERROR", $"出力ファイル削除エラー\n{ex2}");
+                    MessageBox.Show($"出力ファイルの削除に失敗しました。\n\n{ex2}",
+                                    "エラー",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+                logger.Write("INFO", "■■■■■■■異常終了■■■■■■");
                 return;
             }
 
@@ -104,8 +120,6 @@ namespace 文字列置換ツール
             {
                 foreach (KeyValuePair<string, string> kvp in dic)
                 {
-                    Debug.WriteLine($"置換前文字列：{kvp.Key}");
-                    Debug.WriteLine($"置換後文字列：{kvp.Value}");
                     ReplaceStr(kvp.Key, kvp.Value, targetFilePath);
                 }
             }
@@ -117,6 +131,22 @@ namespace 文字列置換ツール
                                 "エラー",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
+
+                // 異常終了の場合、出力に作成したファイルを削除する
+                try
+                {
+                    DeleteFile(targetFilePath);
+                }
+                catch (Exception ex2)
+                {
+                    Debug.Write($"出力ファイル削除エラー\n{ex2}");
+                    logger.Write("ERROR", $"出力ファイル削除エラー\n{ex2}");
+                    MessageBox.Show($"出力ファイルの削除に失敗しました。\n\n{ex2}",
+                                    "エラー",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+                logger.Write("INFO", "■■■■■■■異常終了■■■■■■");
                 return;
             }
 
@@ -173,6 +203,28 @@ namespace 文字列置換ツール
             {
                 File.Copy(sourcePath, targetPath, true);
                 return targetPath;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+
+
+        /// <summary>
+        /// ファイルを削除するメソッド
+        /// </summary>
+        private void DeleteFile(string targetPath)
+        {
+            // 対象のファイルが存在すれば削除する
+            try
+            {
+                if (File.Exists(targetPath))
+                {
+                    File.Delete(targetPath);
+                    Debug.WriteLine($"出力ファイル削除完了:{targetPath}");
+                }
             }
             catch
             {
