@@ -16,6 +16,7 @@ namespace 文字列置換ツール
     public partial class Form1 : Form
     {
         private Logger logger;
+        private string sourceFilePath;
 
         /// <summary>
         /// コンストラクタ
@@ -52,9 +53,6 @@ namespace 文字列置換ツール
 
 
             // 元ファイルからファイルのコピーを作成
-            // 元ファイルのパスを取得してチェック
-            string sourceFilePath = FileNameTextBox.Text;
-            string targetFilePath;
             if (sourceFilePath == "")
             {
                 MessageBox.Show("ファイルを選択してください。",
@@ -65,6 +63,7 @@ namespace 文字列置換ツール
             }
 
             // コピーを実行
+            string targetFilePath;
             try
             {
                 targetFilePath = CopyFile(sourceFilePath);
@@ -150,7 +149,8 @@ namespace 文字列置換ツール
             // ファイルダイアログを開き、OKボタンが選択された場合、選択されたファイル名を取得する
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                FileNameTextBox.Text = ofd.FileName;
+                sourceFilePath = ofd.FileName;
+                FileNameTextBox.Text = sourceFilePath.Substring(sourceFilePath.LastIndexOf(@"\") + 1);
             }
         }
 
@@ -161,9 +161,12 @@ namespace 文字列置換ツール
         /// </summary>
         private string CopyFile(string sourcePath)
         {
-            // コピー先パスを取得
-            string sourceFileName = sourcePath.Substring(sourcePath.LastIndexOf(@"\") + 1);
-            string targetPath = sourcePath.Substring(0, sourcePath.LastIndexOf(@"\") + 1) + "replace_" + sourceFileName;
+            // フォルダパス・拡張子を除いた元ファイル名
+            string sourceFileName = FileNameTextBox.Text.Substring(0, FileNameTextBox.Text.LastIndexOf("."));
+            // 元ファイル拡張子
+            string sourceFileNameExtension = FileNameTextBox.Text.Substring(FileNameTextBox.Text.LastIndexOf(".") + 1);
+            // コピー先フルパスを取得
+            string targetPath = sourcePath.Substring(0, sourcePath.LastIndexOf(@"\") + 1) + sourceFileName + "_repl." + sourceFileNameExtension;
 
             // 元ファイルのフォルダ直下にコピーファイルを作成
             try
@@ -257,8 +260,8 @@ namespace 文字列置換ツール
             // 出力ファイルに書き出し用文字列を書き込む
             try
             {
-                Debug.WriteLine($"書き込み文字列：{sb}");
-                using (StreamWriter sw = new StreamWriter(targetPath))
+                Encoding enc = Encoding.GetEncoding("UTF-8");
+                using (StreamWriter sw = new StreamWriter(targetPath, false, enc))
                 {
                     // 書き込む
                     sw.Write(sb);

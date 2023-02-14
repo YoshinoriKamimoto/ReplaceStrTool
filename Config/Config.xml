@@ -24,5 +24,130 @@
         <OldValue>where</OldValue>
         <NewValue>WHERE</NewValue>
     </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue>case</OldValue>
+        <NewValue>CASE</NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue>when</OldValue>
+        <NewValue>WHEN</NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue> in </OldValue>
+        <NewValue> IN </NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue>then</OldValue>
+        <NewValue>THEN</NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue>else</OldValue>
+        <NewValue>ELSE</NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue> as </OldValue>
+        <NewValue> AS </NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue> end </OldValue>
+        <NewValue> END </NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue> is </OldValue>
+        <NewValue> IS </NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue> null </OldValue>
+        <NewValue> NULL </NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue> join </OldValue>
+        <NewValue> JOIN </NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue> on </OldValue>
+        <NewValue> ON </NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue> and </OldValue>
+        <NewValue> AND </NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue> between </OldValue>
+        <NewValue> BETWEEN </NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue> left </OldValue>
+        <NewValue> LEFT </NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue>group by</OldValue>
+        <NewValue>GROUP BY</NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue>order by</OldValue>
+        <NewValue>ORDER BY</NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue> not </OldValue>
+        <NewValue> NOT </NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue>max(</OldValue>
+        <NewValue>MAX(</NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue>count(</OldValue>
+        <NewValue>COUNT(</NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue>sum(</OldValue>
+        <NewValue>SUM(</NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue>min(</OldValue>
+        <NewValue>MIN(</NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue>replace(</OldValue>
+        <NewValue>REPLACE(</NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue>to_char(</OldValue>
+        <NewValue>TO_CHAR(</NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue>to_date(</OldValue>
+        <NewValue>TO_DATE(</NewValue>
+    </ReplaceStr>
+
+    <ReplaceStr>
+        <OldValue>substring(</OldValue>
+        <NewValue>SUBSTRING(</NewValue>
+    </ReplaceStr>
     
 </Root>
